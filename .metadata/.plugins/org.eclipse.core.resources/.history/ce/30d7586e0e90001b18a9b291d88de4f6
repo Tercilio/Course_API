@@ -8,7 +8,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.example.demo.entities.Category;
 import com.example.demo.entities.Order;
 import com.example.demo.entities.User;
 import com.example.demo.enums.OrderStatus;
@@ -48,7 +47,6 @@ public class TestConfig implements CommandLineRunner{
 		
 		userRepositoty.saveAll(Arrays.asList(u1, u2)); //SALVANDO OS USUÁRIOS NO BD
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
-		categoryRepository.saveAll(Arrays.asList(cat1, cat2, cat3));
 	}
 
 }
