@@ -1,0 +1,23 @@
+package com.example.demo.resources;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.educandoweb.course.entities.User;
+import com.educandoweb.course.services.UserService;
+
+public class UserResource {
+
+	@Autowired 
+	private UserService service;
+	
+	@GetMapping
+	public ResponseEntity<List<User>> findAll() {
+		List<User> list = service.findAll();
+		return ResponseEntity.ok().body(list);
+	}
+	
+}
