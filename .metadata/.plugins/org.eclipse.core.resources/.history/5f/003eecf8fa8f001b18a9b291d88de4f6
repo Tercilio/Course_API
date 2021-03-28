@@ -11,11 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.example.demo.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "tb_order") // PQ ORDER É DA CLASSE JAVA E PODE DAR CONFLITO, ENTÃO RENOMEIA A TB
+@Table(name = "tb_order") //PQ ORDER É DA CLASSE JAVA E PODE DAR CONFLITO, ENTÃO RENOMEIA A TB
 public class Order implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -23,33 +22,23 @@ public class Order implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT") // PARA
-																											// GARANTIR
-																											// QUE O
-																											// INSTANTE
-																											// SEJA
-																											// MOSTRADO
-																											// NO
-																											// FORMATO
-																											// ISO8601
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")  //PARA GARANTIR QUE O INSTANTE SEJA MOSTRADO NO FORMATO ISO8601
 	private Instant moment;
 
-	private Integer orderStatus;
-
+	
 	// ASSOCIAÇÕES.. LADO N para 1 (N,1)
-	@ManyToOne // TRANSFORMA EM CHAVE ESTRANGEIRA
-	@JoinColumn(name = "cliente_id") // QUAL CHAVE ESTRANGEIRA VAI TER NO BD
+	@ManyToOne    // TRANSFORMA EM CHAVE ESTRANGEIRA
+	@JoinColumn(name = "cliente_id")   // QUAL CHAVE ESTRANGEIRA VAI TER NO BD
 	private User client;
 
 	public Order() {
 	}
 
-	public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
-
+	public Order(Long id, Instant moment, User client) {
+		super();
 		this.id = id;
 		this.moment = moment;
-		setOrderStatus(orderStatus);
 		this.client = client;
 	}
 
@@ -67,16 +56,6 @@ public class Order implements Serializable {
 
 	public void setMoment(Instant moment) {
 		this.moment = moment;
-	}
-
-	public OrderStatus getOrderStatus() {
-		return OrderStatus.valueOf(orderStatus);
-	}
-
-	public void setOrderStatus(OrderStatus orderStatus) {
-		if (orderStatus != null) {
-			this.orderStatus = orderStatus.getCode();
-		}
 	}
 
 	public User getClient() {

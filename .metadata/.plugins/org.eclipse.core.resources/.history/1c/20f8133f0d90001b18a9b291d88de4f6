@@ -35,7 +35,7 @@ public class Order implements Serializable {
 																											// ISO8601
 	private Instant moment;
 
-	private Integer orderStatus;
+	private OrderStatus orderStatus;
 
 	// ASSOCIAÇÕES.. LADO N para 1 (N,1)
 	@ManyToOne // TRANSFORMA EM CHAVE ESTRANGEIRA
@@ -49,7 +49,7 @@ public class Order implements Serializable {
 
 		this.id = id;
 		this.moment = moment;
-		setOrderStatus(orderStatus);
+		this.orderStatus = orderStatus;
 		this.client = client;
 	}
 
@@ -70,13 +70,11 @@ public class Order implements Serializable {
 	}
 
 	public OrderStatus getOrderStatus() {
-		return OrderStatus.valueOf(orderStatus);
+		return orderStatus;
 	}
 
 	public void setOrderStatus(OrderStatus orderStatus) {
-		if (orderStatus != null) {
-			this.orderStatus = orderStatus.getCode();
-		}
+		this.orderStatus = orderStatus;
 	}
 
 	public User getClient() {
