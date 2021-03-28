@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+C:\Users\terci\OneDrive\Área de Trabalho\PROJETO-API-CURSO\.metadata\.plugins\org.eclipse.jdt.core
+1021996765.index
+2202257951.index
+4191987306.index
+621129527.index
+53520837.index
+1240728252.index
+4140520347.index
+2156432048.index
+2505557459.index
