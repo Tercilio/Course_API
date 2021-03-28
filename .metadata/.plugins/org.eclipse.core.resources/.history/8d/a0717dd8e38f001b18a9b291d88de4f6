@@ -1,0 +1,36 @@
+package com.example.demo.entities;
+
+import java.io.Serializable;
+import java.time.Instant;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+public class Order implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+
+	
+	private Long id;
+	private Instant moment;
+	
+	//ASSOCIAÇÕES.. 1 PEDIDO TEM 1 CLIENTE
+	private User client;
+
+	public Order() {
+	}
+	
+	public Order(Long id, Instant moment, User client) {
+		super();
+		this.id = id;
+		this.moment = moment;
+		this.client = client;
+	}
+	
+	
+	
+
+}
