@@ -135,7 +135,6 @@ INDEX VERSION 1.131+C:\Users\terci\OneDrive\Área de Trabalho\PROJETO-API-CURSO\.
 2303552657.index
 1259094222.index
 2439912967.index
-4225403166.index
 2631325661.index
 365818920.index
 1826534542.index
