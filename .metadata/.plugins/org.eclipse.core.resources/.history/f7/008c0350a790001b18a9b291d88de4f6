@@ -29,7 +29,7 @@ public class UserService {
 		return repository.save(obj);
 	}
 	
-	public void delete(Long id) {  //DELETA O USUÁRIO DO BANCO DE DADOS
+	public void delete(Long id) {
 		repository.deleteById(id);
 	}
 }
