@@ -1,0 +1,35 @@
+package com.example.demo.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.entities.User;
+import com.example.demo.repositories.UserRepository;
+
+
+@Service  //REGISTRA A CLASSE COMO COMPONENTE DO SPRING
+public class UserService {
+
+	@Autowired
+	private UserRepository repository;
+	
+	public List<User> findAll() {
+		return repository.findAll();
+	}
+	
+	public User findById(Long id) { //ECONTRAR UM USUÁRIO PELO ID
+		Optional<User> obj = repository.findById(id); //OBJ OPTIONAL
+		return obj.get();
+	}
+	
+	public User insert(User obj) {  //INSERE NO BD UM NOVO USUÁRIO
+		return repository.save(obj);
+	}
+	
+	public void delete(Long id) {  //DELETA O USUÁRIO DO BANCO DE DADOS
+		repository.deleteById(id);
+	}
+}
