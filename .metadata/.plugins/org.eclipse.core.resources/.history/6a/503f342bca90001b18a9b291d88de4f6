@@ -3,8 +3,6 @@ package com.example.demo.services;
 import java.util.List;
 import java.util.Optional;
 
-import javax.persistence.EntityNotFoundException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -39,24 +37,17 @@ public class UserService {
 			repository.deleteById(id);
 		} catch (EmptyResultDataAccessException e) {
 			throw new ResourceNotFoundException(id);
-		} catch (DataIntegrityViolationException e) {
-			throw new DatabaseException(e.getMessage());
+		} catch(DataIntegrityViolationException e) {
+			throw new DatabaseException(e.getMessage()); 
 		}
 
 	}
 
 	public User update(Long id, User obj) {
-		try {
-			User entity = repository.getOne(id); // MELHOR QUE O FIND BY ID o FIND_BY_ID VAI NO BD E TRÁS O OBJ O
-			updateDate(entity, obj);				// GET_ONE SÓ
-			return repository.save(entity);			// PREPARA O OBJETO PARA DEPOIS INSERIR NO BD
-			
-			
-		} catch (EntityNotFoundException e) {
-			
-			throw new ResourceNotFoundException(id);
-		}
-
+		User entity = repository.getOne(id); // MELHOR QUE O FIND BY ID o FIND_BY_ID VAI NO BD E TRÁS O OBJ O GET_ONE SÓ
+												// PREPARA O OBJETO PARA DEPOIS INSERIR NO BD
+		updateDate(entity, obj);
+		return repository.save(entity);
 	}
 
 	private void updateDate(User entity, User obj) {

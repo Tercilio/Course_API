@@ -1338,3 +1338,6 @@
 2021-03-29 17:01:24,101 [Worker-205: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2021-03-29 17:01:24,101 [Worker-205: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2021-03-29 17:01:24,101 [Worker-205: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\terci\OneDrive\Área de Trabalho\PROJETO-API-CURSO\Course_API\src\test\resources
+2021-03-29 17:05:54,975 [Worker-213: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-29 17:05:54,976 [Worker-213: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2021-03-29 17:05:54,978 [Worker-213: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
