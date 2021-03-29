@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.User;
 import com.example.demo.repositories.UserRepository;
-import com.example.demo.services.exceptions.ResourceNotFoundException;
 
 @Service // REGISTRA A CLASSE COMO COMPONENTE DO SPRING
 public class UserService {
@@ -22,7 +21,7 @@ public class UserService {
 
 	public User findById(Long id) { // ECONTRAR UM USUÁRIO PELO ID
 		Optional<User> obj = repository.findById(id); // OBJ OPTIONAL
-		return obj.orElseThrow( () -> new ResourceNotFoundException(id)) ;
+		return obj.get();
 	}
 
 	public User insert(User obj) { // INSERE NO BD UM NOVO USUÁRIO
